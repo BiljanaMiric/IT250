@@ -1,5 +1,14 @@
 package com.mycompany.tapestryhibernatedemo.services;
 
+import com.mycompany.tapestryhibernatedemo.dao.AvionDao;
+import com.mycompany.tapestryhibernatedemo.dao.GradDrzaveDao;
+import com.mycompany.tapestryhibernatedemo.dao.LetDao;
+import com.mycompany.tapestryhibernatedemo.dao.UserDao;
+import com.mycompany.tapestryhibernatedemo.pages.AvionDaoImpl;
+import com.mycompany.tapestryhibernatedemo.pages.GradDrzaveDaoImpl;
+import com.mycompany.tapestryhibernatedemo.pages.LetDaoImpl;
+import com.mycompany.tapestryhibernatedemo.pages.UserDaoImpl;
+
 import java.io.IOException;
 
 import org.apache.tapestry5.*;
@@ -24,6 +33,10 @@ public class AppModule
 {
     public static void bind(ServiceBinder binder)
     {
+        binder.bind(AvionDao.class, AvionDaoImpl.class);
+        binder.bind(GradDrzaveDao.class,GradDrzaveDaoImpl.class);
+        binder.bind(LetDao.class, LetDaoImpl.class);
+        binder.bind(UserDao.class, UserDaoImpl.class);
         // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.

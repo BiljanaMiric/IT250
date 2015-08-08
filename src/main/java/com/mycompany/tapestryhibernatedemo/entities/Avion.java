@@ -59,11 +59,12 @@ public class Avion implements Serializable {
         this.id = id;
     }
 
-    public Avion(Integer id, String Proizvodjac, String Model, int brojMesta) {
+    public Avion(Integer id, String Proizvodjac, Integer godinaProizvodnje, String Model, int brojMesta) {
         this.id = id;
         this.proizvodjac = Proizvodjac;
         this.model = Model;
         this.brojMesta = brojMesta;
+        this.godinaProizvodnje= godinaProizvodnje;
     }
 
     public Integer getId() {

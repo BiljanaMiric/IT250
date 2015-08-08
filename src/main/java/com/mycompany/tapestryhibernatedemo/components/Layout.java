@@ -1,5 +1,6 @@
 package com.mycompany.tapestryhibernatedemo.components;
 
+import com.mycompany.tapestryhibernatedemo.entities.User;
 import org.apache.tapestry5.*;
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.annotations.*;
@@ -34,6 +35,8 @@ public class Layout
   @Inject
   @Symbol(SymbolConstants.APPLICATION_VERSION)
   private String appVersion;
+  @Property
+  private User loggedInUser;
 
   public String getClassForPageName()
   {
@@ -44,7 +47,16 @@ public class Layout
 
   public String[] getPageNames()
   {
-    return new String[]{"Index", "About", "Contact"};
+    return new String[]{"Index", "DodavanjeAviona","DodavanjeDrzava","DodavanjeGradova","DodavanjeLetova","About", "Contact"};
   }
+  public boolean getLoggedIn() {
+      if (loggedInUser.getEmail() != null) {
+          return true; 
+      }
+      return false; 
+  }
+  public void onActionFromLogout() { 
+      loggedInUser = null;
+}
 
 }

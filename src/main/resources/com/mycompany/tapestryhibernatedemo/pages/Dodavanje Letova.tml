@@ -1,0 +1,16 @@
+<html t:type="layout" title="Dodavanje Gradova" t:sidebarTitle="Framework Version" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<t:beaneditform object="let" exclude="id" add="grad" >
+<p:grad>
+<t:label for="grad"/>:
+<t:select t:blankLabel="Odaberi grad" t:id="grad" encoder="encoder" model="gradovi" validate="required"/>
+</p:grad>
+</t:beaneditform>
+<t:grid source="letovi" exclude="id" add="delete,grad" row="onelet" >
+<p:deleteCell>
+<t:actionlink t:id="delete" context="onelet.id">Delete</t:actionlink>
+</p:deleteCell>
+<p:gradCell>
+${grad}
+</p:gradCell>
+ </t:grid>
+</html>

@@ -1,8 +1,8 @@
 package com.mycompany.tapestryhibernatedemo.pages;
 
 
-import com.mycompany.tapestryhibernatedemo.dao.AvionDao;
-import com.mycompany.tapestryhibernatedemo.entities.Avion;
+import com.mycompany.tapestryhibernatedemo.dao.LetDao;
+import com.mycompany.tapestryhibernatedemo.entities.Let;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.tapestry5.annotations.Property;
@@ -11,34 +11,34 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
 
 
-public class DodavanjeAviona {
+public class DodavanjeLetova {
     @Property
-    private Avion avion;
+    private Let let;
     @Property
-    private Avion oneavion;
+    private Let onelet;
     @Inject
-    private AvionDao avionDao;
+    private LetDao letDao;
     
     @Property 
-    private List<Avion> avioni;
+    private List<Let> letovi;
     
     void onActivate() {
-        if (avioni == null) {
-            avioni = new ArrayList<Avion>();
+        if (letovi == null) {
+            letovi = new ArrayList<Let>();
         }
 
-        avioni = avionDao.getListaSvihAviona();
+        letovi = letDao.getListaSvihLetova();
     }
     
     @CommitAfter
     Object onSuccess() {
-        avionDao.dodajAvion(avion);
+        letDao.dodajLet(let);
         return this;
     } 
     @CommitAfter
     Object onActionFromDelete(int id)
     {
-        avionDao.obrisiAvion(id);
+        letDao.obrisiLet(id);
         return this;
     }
 }

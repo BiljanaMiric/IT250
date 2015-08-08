@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <t:pagelink page="index" class="navbar-brand">app</t:pagelink>
+            <t:pagelink page="index" class="navbar-brand">website</t:pagelink>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -34,9 +34,13 @@
                 </t:loop>
             </ul>
             <span class="navbar-right">
-                <li>
-                    <t:pagelink page="login" class="btn btn-default navbar-btn">Sign in</t:pagelink>
-               	</li>
+                <t:if test="!loggedIn"> 
+                    <li>
+                    <t:pagelink page="login" class="btn btn-default navbar-btn">Sign in</t:pagelink> </li>
+                </t:if>
+                <t:if test="loggedIn">
+                    <t:actionlink t:id="logout" class="btn btn-default navbar-btn">Logout</t:actionlink> 
+                </t:if>
             </span>
 
         </div><!--/.nav-collapse -->
@@ -58,7 +62,7 @@
     <hr />
 
     <footer>
-        <p>&copy; Your Company 2015</p>
+        <p>&copy; Biljana Miric 2015</p>
     </footer>
 
 </div> <!-- /container -->

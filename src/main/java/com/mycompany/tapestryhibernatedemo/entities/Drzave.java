@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.apache.tapestry5.beaneditor.Validate;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 /**
@@ -35,6 +36,7 @@ public class Drzave implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Basic(optional = false)
+    @Validate("required, minLength=3")
     @Column(name = "IME_DRZAVE")
     private String imeDrzave;
     @OneToMany(mappedBy = "drzId")
@@ -99,7 +101,7 @@ public class Drzave implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.tapestryhibernatedemo.entities.Drzave[ id=" + id + " ]";
+        return getImeDrzave();
     }
     
 }

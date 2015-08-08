@@ -1,11 +1,13 @@
 package com.mycompany.tapestryhibernatedemo.pages;
 
 
+import com.mycompany.tapestryhibernatedemo.entities.Avion;
+import com.mycompany.tapestryhibernatedemo.dao.AvionDao;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.Log;
+
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
@@ -14,6 +16,7 @@ import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.slf4j.Logger;
 
 import java.util.Date;
+
 
 /**
  * Start page of application TapestryHibernateDemo.
@@ -36,6 +39,8 @@ public class Index
 
   @Inject
   private Block block;
+  
+
 
 
   // Handle call with an unwanted context
@@ -46,28 +51,7 @@ public class Index
         null;
   }
 
-
-  Object onActionFromLearnMore()
-  {
-    about.setLearn("LearnMore");
-
-    return about;
-  }
-
-  @Log
-  void onComplete()
-  {
-    logger.info("Complete call on Index page");
-  }
-
-  @Log
-  void onAjax()
-  {
-    logger.info("Ajax call on Index page");
-
-    ajaxResponseRenderer.addRender("middlezone", block);
-  }
-
+ 
 
   public Date getCurrentTime()
   {
