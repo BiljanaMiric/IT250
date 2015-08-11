@@ -61,7 +61,8 @@ public class DodavanjeGradova {
         gradovi = drzaveDao.getListaSvihGradova(); 
         drzave = drzaveDao.getListaSvihDrzava();
         }
-        @CommitAfter Object onSuccess() {
+        @CommitAfter 
+        Object onSuccess() {
             grad.setDrzId(drzId); 
             drzaveDao.dodajGrad(grad); 
             return this;

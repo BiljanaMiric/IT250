@@ -36,6 +36,7 @@ public class Layout
   @Symbol(SymbolConstants.APPLICATION_VERSION)
   private String appVersion;
   @Property
+  @SessionState
   private User loggedInUser;
 
   public String getClassForPageName()

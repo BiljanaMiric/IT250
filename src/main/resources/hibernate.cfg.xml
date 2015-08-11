@@ -11,6 +11,9 @@ name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 name="hibernate.connection.url">jdbc:mysql://localhost/metair</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.useUnicode">true</property>
+		<property name="hibernate.connection.characterEncoding">UTF-8</property>
+		<property name="hibernate.connection.charSet">UTF-8</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
     </session-factory>

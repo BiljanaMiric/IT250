@@ -29,12 +29,14 @@ public class Login {
     private User loggedInUser; 
     @Component
     private BeanEditForm form;
+    
     Object onActivate() {
         if (loggedInUser.getEmail() != null) {
             return Index.class;
         } 
     return null; 
     }
+    
     public String getMD5Hash(String yourString) { 
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
@@ -54,8 +56,9 @@ public class Login {
         System.out.println(password);
         User u = userDao.checkUser(userLogin.getEmail(), password); 
         if (u!=null) {
-            loggedInUser = u; System.out.println("Logovan"); 
-            return Index.class;
+            loggedInUser = u; 
+            System.out.println("Logovan"); 
+            return About.class;
         } 
         else {
             form.recordError("Uneli ste pogrešne parametre"); 

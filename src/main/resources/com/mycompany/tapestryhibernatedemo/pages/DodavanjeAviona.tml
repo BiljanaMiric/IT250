@@ -1,4 +1,6 @@
-<html t:type="layout" title="Dodavanje Aviona" t:sidebarTitle="Framework Version" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+<html t:type="layout" title="Dodavanje Aviona" 
+t:sidebarTitle="Framework Version" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" 
+xmlns:p="tapestry:parameter">
 <t:beaneditform object="avion" exclude="id" >
 </t:beaneditform>
 <t:grid source="avioni" exclude="id" add="delete" row="oneavion">

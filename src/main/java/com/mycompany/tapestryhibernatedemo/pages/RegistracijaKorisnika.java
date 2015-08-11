@@ -38,7 +38,7 @@ public class RegistracijaKorisnika {
             if (!userDao.checkIfEmailExists(userReg.getEmail())) {
                 String unhashPassword = userReg.getSifra(); 
                 userReg.setSifra(getMD5Hash(unhashPassword)); 
-                userReg.setRola(Role.Korisnik);
+                userReg.setRola(userReg.getRola());
                 User u = userDao.registerUser(userReg); 
                 loggedInUser = u;
                 return Index.class; 

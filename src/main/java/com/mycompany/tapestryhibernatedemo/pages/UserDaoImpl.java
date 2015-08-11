@@ -22,13 +22,10 @@ public class UserDaoImpl implements UserDao {
     @Inject
     private Session session;
     
-    @Property 
-    private User user;
-    
     @Override
     public User checkUser(String email, String password) {
-    try {
-        User u = (User) session.createCriteria(User.class).add(Restrictions.eq("email",
+        try {
+            User u = (User) session.createCriteria(User.class).add(Restrictions.eq("email",
 email)).add(Restrictions.eq("sifra", password)).uniqueResult(); 
         if (u != null) {
             return u; }
